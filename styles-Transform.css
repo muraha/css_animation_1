@@ -1,0 +1,137 @@
+.background {
+    background-image: url(img/bg.png);
+    width: 800px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+}
+
+.car {
+    height: 8.6em;
+    width: 25em;
+    background: url(img/car.png) bottom no-repeat;
+    background-size: contain;
+    margin-top: 20em;
+    animation: car 0.7s steps(5) alternate infinite;
+}
+
+.wheel-left {
+    background-image: url(img/wheel.png);
+    width: 3.9em;
+    height: 3.9em;
+    background-size: contain;
+    animation: wheel 2s linear infinite;
+    display: inline-block;
+    margin: 75px 182px 0 28px;
+}
+
+.wheel-right {
+    background-image: url(img/wheel.png);
+    width: 3.9em;
+    height: 3.9em;
+    background-size: contain;
+    animation: wheel 2s linear infinite;
+    display: inline-block;
+}
+
+.bird {
+    background: url(img/bird.png);
+    width: 184px;
+    height: 184px;
+    animation: bird-move, bird-x, bird-y;
+    animation-duration: 5s, 1s, 2s;
+    animation-timing-function: linear, steps(5), steps(2);
+    animation-iteration-count: infinite;
+}
+
+.foreground {
+    animation: cloud-grass 3s linear infinite;
+}
+
+.clouds {
+    background-image: url(img/cloud.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    position: absolute;
+    height: 35px;
+    width: 800px;
+}
+
+.grass {
+    background-image: url(img/grass.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    position: absolute;
+    height: 35px;
+    width: 800px;
+    align-self: flex-end;
+}
+
+
+/*--ANIMATION--
+---------------*/
+
+@keyframes car {
+    from {
+        margin-top: 20em
+    }
+    to {
+        margin-top: 20.2em
+    }
+}
+
+@keyframes bird-x {
+    from {
+        background-position-x: 0px;
+    }
+    to {
+        background-position-x: -920px;
+    }
+}
+
+@keyframes bird-y {
+    from {
+        background-position-y: 0px
+    }
+    to {
+        background-position-y: -368px
+    }
+}
+
+@keyframes bird-move {
+    0% {
+        transform: translate(700px, 40px);
+    }
+    25% {
+        transform: translate(400px, -40px);
+    }
+    50% {
+        transform: translate(100px, 40px);
+    }
+    75% {
+        transform: translate(-200px, -40px);
+    }
+    100% {
+		transform: translate(-500px, 40px);
+    }
+}
+
+@keyframes cloud-grass {
+    from {
+        background-position: 0%
+    }
+    to {
+        background-position: 60%
+    }
+}
+
+@keyframes wheel {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(-360deg)
+    }
+}

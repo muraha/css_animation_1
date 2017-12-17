@@ -1,0 +1,138 @@
+body {
+    background-image: url(img/bg.png);
+    background-size: cover;
+    margin: 0;
+    overflow: hidden;
+}
+
+.car {
+    width: 550px;
+    height: 170px;
+    background: url(img/car.png) no-repeat;
+    background-size: contain;
+    position: absolute;
+    /* why relative in original*/
+    animation: car 0.7s linear alternate infinite;
+    /*шо за костыль?) почему работает?*/
+    margin: -55px auto;
+    left: 0;
+    right: 0;
+}
+
+.wheel {
+    background-image: url(img/wheel.png);
+    width: 85px;
+    height: 85px;
+    background-size: contain;
+    animation: wheel 2s linear infinite;
+    position: absolute;
+}
+
+.left {
+    top: 83px;
+    left: 42px
+}
+
+.right {
+    top: 83px;
+    right: 83px;
+}
+
+.bird {
+    background: url(img/bird.png);
+    width: 184px;
+    height: 184px;
+    position: absolute;
+    animation: bird-move, bird-x, bird-y;
+    animation-duration: 4s, 1s, 2s;
+    animation-timing-function: linear, steps(5), steps(2);
+    animation-iteration-count: infinite;
+}
+
+.foreground {
+    background-size: contain;
+    animation: cloud-grass 2s linear infinite;
+}
+
+.clouds {
+    background-image: url(img/cloud.png);
+    height: 75px;
+    width: 100%;
+}
+
+.grass {
+    background-image: url(img/grass.png);
+    position: absolute;
+    height: 65px;
+    width: 100%;
+    bottom: 0;
+}
+
+
+/*--ANIMATION--
+---------------*/
+
+@keyframes car {
+    from {
+        bottom: 90px
+    }
+    to {
+        bottom: 75px
+    }
+}
+
+@keyframes bird-x {
+    from {
+        background-position-x: 0px;
+    }
+    to {
+        background-position-x: -920px;
+    }
+}
+
+@keyframes bird-y {
+    from {
+        background-position-y: 0px
+    }
+    to {
+        background-position-y: -368px
+    }
+}
+
+@keyframes bird-move {
+    0% {
+        left: 100%;
+        top: 15%;
+    }
+    20% {
+        top: 10%;
+    }
+    40% {
+        top: 20%;
+    }
+    65% {
+        top: 10%;
+    }
+    100% {
+        left: -20%;
+        top: 15%;
+    }
+}
+
+@keyframes cloud-grass {
+    from {
+        background-position: 0
+    }
+    to {
+        background-position: 400px
+    }
+}
+
+@keyframes wheel {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(-360deg)
+    }
+}
